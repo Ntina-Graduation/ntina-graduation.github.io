@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Συγχαρητήρια Ντίνα 🎓</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --gold: #c9a84c;
+  --gold-lt: #f0d475;
+  --cream: #fdf8f0;
+  --dark: #120e07;
+}
+
+body {
+  background: var(--dark);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+}
+
+#prog {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0;
+  background: linear-gradient(90deg,var(--gold),var(--gold-lt));
+  z-index: 9999; transition: width .08s linear;
+}
+
+/* ══════════ HERO ══════════ */
+#hero {
+  height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 60%, #2a1b06 0%, var(--dark) 70%);
+}
+.hero-bg-year {
+  position: absolute;
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(8rem,22vw,20rem); font-weight: 700;
+  color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.08);
+  user-select: none; pointer-events: none; letter-spacing: -0.04em;
+  top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap;
+}
+.hero-cap {
+  font-size: clamp(3rem,7vw,5.5rem);
+  animation: capSway 3s ease-in-out infinite;
+  display: inline-block; line-height: 1; position: relative; z-index: 2; margin-bottom: 8px;
+}
+@keyframes capSway {
+  0%,100% { transform: rotate(-6deg) translateY(0); }
+  50% { transform: rotate(6deg) translateY(-18px); }
+}
+.hero-name {
+  position: relative; z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem,11vw,9rem);
+  font-style: italic; font-weight: 700;
+  background: linear-gradient(135deg, #a07828 0%, var(--gold) 30%, var(--gold-lt) 55%, var(--gold) 80%, #a07828 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; letter-spacing: -0.01em;
+}
+.hero-rule {
+  width: 100px; height: 1px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin: 20px auto; position: relative; z-index: 2;
+}
+.hero-sub {
+  position: relative; z-index: 2;
+  font-family: 'Libre Baskerville', serif;
+  font-size: clamp(0.7rem,1.8vw,0.9rem); letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(201,168,76,0.6);
+}
+.hero-tagline {
+  position: relative; z-index: 2;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem,2.5vw,1.4rem); font-style: italic; font-weight: 300;
+  color: rgba(253,248,240,0.6); margin-top: 14px;
+  max-width: 500px; text-align: center; line-height: 1.7;
+}
+.particle {
+  position: absolute; border-radius: 50%; background: var(--gold-lt);
+  pointer-events: none;
+  animation: particleDrift var(--pd) ease-in-out infinite; animation-delay: var(--pde);
+  opacity: 0; width: var(--ps); height: var(--ps);
+}
+@keyframes particleDrift {
+  0% { opacity: 0; transform: translate(0,0) scale(0.5); }
+  30% { opacity: 0.7; } 70% { opacity: 0.4; }
+  100% { opacity: 0; transform: translate(var(--pdx),var(--pdy)) scale(1.5); }
+}
+.scroll-cue {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: rgba(201,168,76,0.4); font-family: 'Libre Baskerville', serif;
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 36px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollFlow 2s ease-in-out infinite;
+}
+@keyframes scrollFlow {
+  0%  { transform: scaleY(0); transform-origin: top; opacity:1; }
+  49% { transform: scaleY(1); transform-origin: top; opacity:1; }
+  50% { transform: scaleY(1); transform-origin: bottom; opacity:1; }
+  100%{ transform: scaleY(0); transform-origin: bottom; opacity:0; }
+}
+
+/* ══════════ CHAPTERS ══════════ */
+.polaroid-universe { position: relative; background: var(--dark); }
+.chapter {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: stretch;
+}
+.chapter-narrative {
+  position: sticky; top: 0; height: 100vh; width: 42%;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 40px 60px 8%; z-index: 10; pointer-events: none;
+}
+.chapter-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem; font-weight: 700;
+  color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.12);
+  line-height: 1; margin-bottom: -15px;
+  transition: -webkit-text-stroke-color 0.6s ease;
+}
+.chapter.active .chapter-num { -webkit-text-stroke-color: rgba(201,168,76,0.3); }
+.chapter-tag {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(201,168,76,0.5); margin-bottom: 12px;
+  border-left: 2px solid rgba(201,168,76,0.3); padding-left: 12px;
+}
+.chapter-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem,2.5vw,1.9rem); font-style: italic; font-weight: 400;
+  color: var(--gold-lt); line-height: 1.45; margin-bottom: 16px;
+}
+.chapter-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(0.95rem,1.8vw,1.2rem); font-weight: 300;
+  color: rgba(253,248,240,0.6); line-height: 1.85;
+}
+.chapter-polaroids {
+  flex: 1; padding: 80px 5% 80px 3%;
+  display: flex; flex-direction: column; gap: 60px; align-items: flex-start;
+}
+
+/* ══════════ POLAROID CARD ══════════ */
+.polaroid {
+  background: #fdf6e8;
+  padding: 10px 10px 36px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+  width: clamp(180px, 38%, 260px);
+  transform: var(--pr, rotate(3deg));
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+  cursor: pointer; position: relative; flex-shrink: 0;
+}
+.polaroid:nth-child(even) { align-self: flex-end; }
+.polaroid:nth-child(3n)   { align-self: center; }
+.polaroid.popped {
+  opacity: 1;
+  transform: var(--pr, rotate(3deg)) translateY(-4px);
+}
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.07) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 4px 16px rgba(201,168,76,0.2);
+  z-index: 100;
+}
+.polaroid img, .polaroid video {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+  filter: sepia(12%) contrast(1.06) brightness(0.92) saturate(0.9);
+  pointer-events: none;
+}
+/* tape strip */
+.polaroid::before {
+  content: '';
+  position: absolute; top: -10px; left: 50%;
+  transform: translateX(-50%) rotate(var(--tape-r, -2deg));
+  width: 48px; height: 22px;
+  background: rgba(240,212,117,0.45);
+  border: 1px solid rgba(201,168,76,0.2);
+  z-index: 2;
+}
+/* wide landscape polaroid */
+.polaroid.wide { width: clamp(220px,55%,340px); padding-bottom: 36px; }
+.polaroid.wide img, .polaroid.wide video { aspect-ratio: 4/3; }
+
+.chapter-divider {
+  height: 1px;
+  background: linear-gradient(90deg,transparent,rgba(201,168,76,0.15),transparent);
+}
+
+/* ══════════ VIDEO MEMORY WALL ══════════ */
+.memory-wall {
+  height: 200vh;
+  position: relative; overflow: hidden;
+  background: #080603;
+}
+
+/* full-bleed tiled video background */
+.vwall-bg {
+  position: absolute; inset: 0; z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0;
+}
+.vwall-bg-slot { position: relative; overflow: hidden; }
+.vwall-bg-slot video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  filter: sepia(45%) brightness(0.22) contrast(1.1);
+}
+
+/* dark gradient vignette */
+.vwall-vignette {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 30%, rgba(8,6,3,0.55) 100%);
+}
+
+/* floating polaroid cards — base position via left/top, drift via transform */
+.fp {
+  position: absolute; z-index: 2;
+  left: var(--fpl); top: var(--fpt2);
+  background: #fdf6e8;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.75), 0 2px 10px rgba(0,0,0,0.5);
+  pointer-events: none;
+  animation: fpCycle var(--fpt) ease-in-out infinite;
+  animation-delay: var(--fpd);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.fp.port {
+  width: clamp(100px,12vw,170px);
+  padding: 8px 8px 34px;
+}
+.fp.port img, .fp.port video {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; display: block;
+  filter: sepia(15%) brightness(0.88) contrast(1.04);
+}
+.fp.land {
+  width: clamp(140px,17vw,230px);
+  padding: 8px 8px 34px;
+}
+.fp.land img, .fp.land video {
+  width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+  filter: sepia(15%) brightness(0.88) contrast(1.04);
+}
+.fp::before {
+  content: '';
+  position: absolute; top: -9px; left: 50%;
+  transform: translateX(-50%) rotate(var(--fptr, -2deg));
+  width: 40px; height: 18px;
+  background: rgba(240,212,117,0.5);
+  border: 1px solid rgba(201,168,76,0.25);
+  z-index: 3;
+}
+@keyframes fpCycle {
+  0%   { opacity: 0;    transform: rotate(var(--fpr)) scale(0.82) translate(0, 0); }
+  8%   { opacity: 0.85; transform: rotate(var(--fpr)) scale(1)    translate(0, 0); }
+  80%  { opacity: 0.85; transform: rotate(calc(var(--fpr) + var(--fprd,4deg))) scale(1) translate(var(--fpmx,14px), var(--fpmy,-18px)); }
+  100% { opacity: 0;    transform: rotate(calc(var(--fpr) + var(--fprd,4deg))) scale(0.85) translate(var(--fpmx,14px), var(--fpmy,-18px)); }
+}
+
+/* ══════════ FINALE ══════════ */
+#finale {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 100px 20px 80px;
+  background: radial-gradient(ellipse 80% 50% at 50% 80%, #261b06 0%, var(--dark) 65%);
+  position: relative; overflow: hidden;
+}
+.finale-ornament {
+  font-size:1.2rem; letter-spacing:0.8em;
+  color:rgba(201,168,76,0.25); margin-bottom:50px;
+}
+.finale-hed {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,6.5vw,4.8rem); font-style:italic; font-weight:700; line-height:1.2;
+  background: linear-gradient(135deg,#a07828 0%,var(--gold) 30%,var(--gold-lt) 55%,var(--gold) 80%,#a07828 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  max-width:820px; margin:0 auto 30px;
+}
+.finale-rule {
+  width:180px; height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 30px;
+}
+.finale-body {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.05rem,2.5vw,1.45rem); font-weight:300; font-style:italic;
+  color:rgba(253,248,240,0.7); line-height:1.9;
+  max-width:560px; margin:0 auto 40px;
+}
+.finale-promise {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.2rem,3vw,2rem); font-style:italic; color:var(--gold-lt);
+  max-width:600px; margin:0 auto 60px; line-height:1.5;
+}
+
+/* HORIZONTAL finale polaroid */
+.finale-polaroid {
+  background: #fdf6e8;
+  padding: 12px 12px 44px;
+  box-shadow: 0 20px 70px rgba(0,0,0,0.8), 0 4px 20px rgba(201,168,76,0.1);
+  width: min(600px, 92vw);
+  transform: rotate(-1deg);
+  margin: 0 auto 50px;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.finale-polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+}
+.finale-polaroid img {
+  width: 100%; aspect-ratio: 5/3; object-fit: cover; display: block;
+  filter: sepia(8%) contrast(1.05);
+}
+.finale-polaroid-caption {
+  position: absolute; bottom: 10px; left: 0; right: 0; text-align: center;
+  font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic;
+  color:rgba(60,40,10,0.8);
+}
+.finale-polaroid::before {
+  content:''; position:absolute; top:-12px; left:50%;
+  transform:translateX(-50%) rotate(-3deg);
+  width:60px; height:26px;
+  background:rgba(240,212,117,0.5); border:1px solid rgba(201,168,76,0.2); z-index:2;
+}
+
+.finale-sigs {
+  display:flex; gap:28px; flex-wrap:wrap;
+  justify-content:center; margin-bottom:50px;
+}
+.sig {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1rem,2.5vw,1.5rem); font-style:italic;
+  color:rgba(201,168,76,0.7); padding-bottom:4px;
+  border-bottom:1px solid rgba(201,168,76,0.2);
+}
+.hearts { display:flex; gap:18px; justify-content:center; font-size:1.3rem; }
+.h-float { animation:hf var(--hd) ease-in-out infinite; animation-delay:var(--hdl); display:inline-block; }
+@keyframes hf {
+  0%,100%{ transform:translateY(0); opacity:0.6; }
+  50%{ transform:translateY(-14px); opacity:1; }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  .chapter            { flex-direction: column; }
+  .chapter-narrative  { position:relative; width:100%; height:auto; padding:50px 24px 30px; }
+  .chapter-polaroids  { padding:20px 24px 60px; gap:40px; }
+  .polaroid           { width: clamp(150px, 58vw, 230px) !important; }
+  .polaroid.wide      { width: clamp(190px, 78vw, 290px) !important; }
+  .vwall-bg           { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,1fr); }
+  .fp.port            { width: clamp(72px, 22vw, 110px) !important; }
+  .fp.land            { width: clamp(96px, 28vw, 140px) !important; }
+  .memory-wall        { height: 260vh; }
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="hero-bg-year">2026</div>
+  <div id="particles"></div>
+  <div class="hero-cap">🎓</div>
+  <div class="hero-name">Ντίνα</div>
+  <div class="hero-rule"></div>
+  <div class="hero-sub">Πτυχιούχος · Απόφοιτη · Νικήτρια</div>
+  <div class="hero-tagline">Ήταν μια ταξιδιά. Δεν ήταν εύκολη.<br>Αλλά τελικά — το έκανες.</div>
+  <div class="scroll-cue">
+    <span>Ανακάλυψε</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════ POLAROID UNIVERSE ══════════════════ -->
+<div class="polaroid-universe">
+
+  <!-- ── CHAPTER 1 ── -->
+  <div class="chapter" id="ch1">
+    <div class="chapter-narrative">
+      <div class="chapter-num">01</div>
+      <div class="chapter-tag">Τότε που...</div>
+      <div class="chapter-quote">«Πάμε μάθημα; Στις 8 το πρωί»</div>
+      <div class="chapter-body">
+        Αυτό το μήνυμα στο group chat. Κάποιος πάντα το έστελνε, κάποιος πάντα ρωτούσε «Πού κάθεστε;». Τα πρωινά με τα μισάνοιχτα μάτια, τον καφέ στο χέρι — τώρα είναι θρύλος.
+      </div>
+    </div>
+    <div class="chapter-polaroids">
+      <div class="polaroid" style="--pr:rotate(4deg);--tape-r:3deg;" data-pop>
+        <img src="media/photo1.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(-5deg);--tape-r:4deg;" data-pop>
+        <img src="media/photo2.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(2deg);--tape-r:-2deg;" data-pop>
+        <img src="media/photo3.jpg" loading="lazy" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"></div>
+
+  <!-- ── CHAPTER 2 ── -->
+  <div class="chapter" id="ch2">
+    <div class="chapter-narrative">
+      <div class="chapter-num">02</div>
+      <div class="chapter-tag">Από τα εξάλλα...</div>
+      <div class="chapter-quote">«Από τα παρτάκια στο κυλικείο σε γλέντια που τελειώνανε τα πρωινά»</div>
+      <div class="chapter-body">
+        Ποιος είπε ότι η πανεπιστημιακή ζωή είναι μόνο βιβλία; Κάθε μεσημέρι ήταν μικρό φεστιβάλ. Με τον Κάρρα στα ακουστικά φυσικά.
+      </div>
+    </div>
+    <div class="chapter-polaroids">
+      <div class="polaroid" style="--pr:rotate(-3deg);--tape-r:-4deg;" data-pop>
+        <img src="media/photo4.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(6deg);--tape-r:2deg;" data-pop>
+        <img src="media/photo5.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid wide" style="--pr:rotate(-2deg);--tape-r:1deg;" data-pop>
+        <video autoplay muted loop playsinline>
+          <source src="media/video1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"></div>
+
+  <!-- ── CHAPTER 3 ── -->
+  <div class="chapter" id="ch3">
+    <div class="chapter-narrative">
+      <div class="chapter-num">03</div>
+      <div class="chapter-tag">Αυτές οι νύχτες...</div>
+      <div class="chapter-quote">«Πότε "τελευταία φορά" έγινε "ρε πάμε ακόμα μία;"»</div>
+      <div class="chapter-body">
+        Δεν θυμάται κανείς πώς ξεκίνησε. Θυμάται πώς τελείωνε — με γέλια, με τραγούδι, με υποσχέσεις που κρατήθηκαν.
+      </div>
+    </div>
+    <div class="chapter-polaroids">
+      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-3deg;" data-pop>
+        <img src="media/photo6.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(-4deg);--tape-r:5deg;" data-pop>
+        <img src="media/photo7.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid wide" style="--pr:rotate(2deg);--tape-r:-1deg;" data-pop>
+        <video autoplay muted loop playsinline>
+          <source src="media/video2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"></div>
+
+  <!-- ── CHAPTER 4 ── -->
+  <div class="chapter" id="ch4">
+    <div class="chapter-narrative">
+      <div class="chapter-num">04</div>
+      <div class="chapter-tag">Από εκεί που ξεκίνησες...</div>
+      <div class="chapter-quote">«Μεγάλωσες εκεί. Και μας έφερες κομμάτι από εκεί μαζί σου.»</div>
+      <div class="chapter-body">
+        Κάθε φορά που μιλούσες για την πόλη σου, ακούγαμε αγάπη. Τώρα φεύγεις με κάτι που δεν χωράει σε κανένα πτυχίο — με ρίζες.
+      </div>
+    </div>
+    <div class="chapter-polaroids">
+      <div class="polaroid" style="--pr:rotate(-6deg);--tape-r:4deg;" data-pop>
+        <img src="media/photo8.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(3deg);--tape-r:-2deg;" data-pop>
+        <img src="media/photo9.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid wide" style="--pr:rotate(-2deg);--tape-r:3deg;" data-pop>
+        <video autoplay muted loop playsinline>
+          <source src="media/video3.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"></div>
+
+  <!-- ── CHAPTER 5 ── -->
+  <div class="chapter" id="ch5">
+    <div class="chapter-narrative">
+      <div class="chapter-num">05</div>
+      <div class="chapter-tag">Και τελικά...</div>
+      <div class="chapter-quote">«Από τη βιβλιοθήκη στην ορκωμοσία»</div>
+      <div class="chapter-body">
+        Ήταν δύσκολα μερικές φορές. Αλλά να — ήρθε η μέρα. Με το καπέλο στο κεφάλι, με χαμόγελο που δεν κρύβεται.
+      </div>
+    </div>
+    <div class="chapter-polaroids">
+      <div class="polaroid" style="--pr:rotate(4deg);--tape-r:-3deg;" data-pop>
+        <img src="media/photo10.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(-3deg);--tape-r:2deg;" data-pop>
+        <img src="media/photo11.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-4deg;" data-pop>
+        <img src="media/photo12.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid wide" style="--pr:rotate(-1deg);--tape-r:2deg;" data-pop>
+        <video autoplay muted loop playsinline>
+          <source src="media/video4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="polaroid wide" style="--pr:rotate(3deg);--tape-r:-3deg;" data-pop>
+        <video autoplay muted loop playsinline>
+          <source src="media/video5.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-divider"></div>
+
+  <!-- ── CHAPTER 6 ── -->
+  <div class="chapter" id="ch6">
+    <div class="chapter-narrative">
+      <div class="chapter-num">06</div>
+      <div class="chapter-tag">Οι φίλοι...</div>
+      <div class="chapter-quote">«Αυτές οι φωτογραφίες δεν χρειάζονται λεζάντα»</div>
+      <div class="chapter-body">
+        Τα πρόσωπα λένε τα πάντα. Η χαρά, η αγάπη, τα γέλια — ζωντανά για πάντα.
+      </div>
+    </div>
+    <div class="chapter-polaroids">
+      <div class="polaroid" style="--pr:rotate(-4deg);--tape-r:3deg;" data-pop>
+        <img src="media/photo13.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-2deg;" data-pop>
+        <img src="media/photo14.jpg" loading="lazy" alt="">
+      </div>
+      <div class="polaroid" style="--pr:rotate(-2deg);--tape-r:4deg;" data-pop>
+        <img src="media/photo15.jpg" loading="lazy" alt="">
+      </div>
+    </div>
+  </div>
+
+</div><!-- /polaroid-universe -->
+
+<!-- ══════════ AMBIENT VIDEO MEMORY WALL ══════════ -->
+<div class="memory-wall" id="memwall">
+
+  <!-- tiled dim video background -->
+  <div class="vwall-bg">
+    <div class="vwall-bg-slot"><video autoplay muted loop playsinline><source src="media/video1.mp4" type="video/mp4"></video></div>
+    <div class="vwall-bg-slot"><video autoplay muted loop playsinline><source src="media/video2.mp4" type="video/mp4"></video></div>
+    <div class="vwall-bg-slot"><video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video></div>
+    <div class="vwall-bg-slot"><video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video></div>
+    <div class="vwall-bg-slot"><video autoplay muted loop playsinline><source src="media/video5.mp4" type="video/mp4"></video></div>
+    <div class="vwall-bg-slot"><video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video></div>
+  </div>
+
+  <div class="vwall-vignette"></div>
+
+  <!-- ── ROW 1 (top ~0–18%) ── -->
+  <div class="fp port" style="--fpl:2%;  --fpt2:4%;  --fpr:-9deg; --fptr:3deg;  --fpt:32s;--fpd:0s;   --fpmx:12px;--fpmy:-20px;--fprd:5deg;"><img src="media/photo1.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:20%; --fpt2:2%;  --fpr:5deg;  --fptr:-3deg; --fpt:29s;--fpd:-8s;  --fpmx:-14px;--fpmy:16px;--fprd:-6deg;"><img src="media/photo2.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:36%; --fpt2:3%;  --fpr:-3deg; --fptr:2deg;  --fpt:35s;--fpd:-20s; --fpmx:10px;--fpmy:-22px;--fprd:4deg;">
+    <video autoplay muted loop playsinline><source src="media/video1.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:62%; --fpt2:4%;  --fpr:8deg;  --fptr:-4deg; --fpt:33s;--fpd:-5s;  --fpmx:-18px;--fpmy:14px;--fprd:-7deg;"><img src="media/photo3.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:82%; --fpt2:2%;  --fpr:-6deg; --fptr:5deg;  --fpt:28s;--fpd:-14s; --fpmx:16px;--fpmy:-18px;--fprd:6deg;"><img src="media/photo4.jpg" alt=""></div>
+
+  <!-- ── ROW 2 (top ~22–40%) ── -->
+  <div class="fp land" style="--fpl:1%;  --fpt2:24%; --fpr:7deg;  --fptr:-5deg; --fpt:36s;--fpd:-12s; --fpmx:-12px;--fpmy:-24px;--fprd:-5deg;">
+    <video autoplay muted loop playsinline><source src="media/video2.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:22%; --fpt2:28%; --fpr:-11deg;--fptr:6deg;  --fpt:30s;--fpd:-3s;  --fpmx:20px;--fpmy:12px;--fprd:8deg;"><img src="media/photo5.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:40%; --fpt2:25%; --fpr:4deg;  --fptr:-2deg; --fpt:34s;--fpd:-18s; --fpmx:-16px;--fpmy:-20px;--fprd:-4deg;"><img src="media/photo6.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:57%; --fpt2:23%; --fpr:-7deg; --fptr:4deg;  --fpt:31s;--fpd:-6s;  --fpmx:14px;--fpmy:-16px;--fprd:7deg;">
+    <video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:80%; --fpt2:26%; --fpr:10deg; --fptr:-6deg; --fpt:38s;--fpd:-25s; --fpmx:-20px;--fpmy:18px;--fprd:-9deg;"><img src="media/photo7.jpg" alt=""></div>
+
+  <!-- ── ROW 3 (top ~44–62%) ── -->
+  <div class="fp port" style="--fpl:3%;  --fpt2:46%; --fpr:-5deg; --fptr:3deg;  --fpt:33s;--fpd:-9s;  --fpmx:18px;--fpmy:-14px;--fprd:4deg;"><img src="media/photo8.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:18%; --fpt2:48%; --fpr:6deg;  --fptr:-3deg; --fpt:37s;--fpd:-22s; --fpmx:-10px;--fpmy:-22px;--fprd:-6deg;">
+    <video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:42%; --fpt2:45%; --fpr:-8deg; --fptr:4deg;  --fpt:29s;--fpd:-4s;  --fpmx:22px;--fpmy:10px;--fprd:6deg;"><img src="media/photo9.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:63%; --fpt2:47%; --fpr:5deg;  --fptr:-2deg; --fpt:32s;--fpd:-16s; --fpmx:-18px;--fpmy:-16px;--fprd:-5deg;"><img src="media/photo10.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:79%; --fpt2:44%; --fpr:-4deg; --fptr:3deg;  --fpt:35s;--fpd:-10s; --fpmx:14px;--fpmy:-20px;--fprd:5deg;">
+    <video autoplay muted loop playsinline><source src="media/video5.mp4" type="video/mp4"></video>
+  </div>
+
+  <!-- ── ROW 4 (top ~66–82%) ── -->
+  <div class="fp land" style="--fpl:2%;  --fpt2:67%; --fpr:9deg;  --fptr:-5deg; --fpt:34s;--fpd:-19s; --fpmx:-14px;--fpmy:16px;--fprd:-7deg;">
+    <video autoplay muted loop playsinline><source src="media/video1.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:23%; --fpt2:70%; --fpr:-6deg; --fptr:4deg;  --fpt:31s;--fpd:-7s;  --fpmx:16px;--fpmy:-18px;--fprd:6deg;"><img src="media/photo11.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:42%; --fpt2:68%; --fpr:12deg; --fptr:-6deg; --fpt:28s;--fpd:-13s; --fpmx:-20px;--fpmy:-12px;--fprd:-8deg;"><img src="media/photo12.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:58%; --fpt2:66%; --fpr:-5deg; --fptr:2deg;  --fpt:36s;--fpd:-2s;  --fpmx:12px;--fpmy:-24px;--fprd:5deg;">
+    <video autoplay muted loop playsinline><source src="media/video2.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:82%; --fpt2:69%; --fpr:6deg;  --fptr:-4deg; --fpt:33s;--fpd:-21s; --fpmx:-16px;--fpmy:14px;--fprd:-4deg;"><img src="media/photo13.jpg" alt=""></div>
+
+  <!-- ── ROW 5 (bottom ~84–94%) ── -->
+  <div class="fp port" style="--fpl:6%;  --fpt2:85%; --fpr:-10deg;--fptr:5deg;  --fpt:30s;--fpd:-11s; --fpmx:14px;--fpmy:-16px;--fprd:7deg;"><img src="media/photo14.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:25%; --fpt2:84%; --fpr:4deg;  --fptr:-3deg; --fpt:38s;--fpd:-27s; --fpmx:-10px;--fpmy:-20px;--fprd:-5deg;">
+    <video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp port" style="--fpl:50%; --fpt2:86%; --fpr:-7deg; --fptr:4deg;  --fpt:32s;--fpd:-5s;  --fpmx:18px;--fpmy:10px;--fprd:6deg;"><img src="media/photo15.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:70%; --fpt2:83%; --fpr:8deg;  --fptr:-2deg; --fpt:35s;--fpd:-15s; --fpmx:-12px;--fpmy:-18px;--fprd:-6deg;">
+    <video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video>
+  </div>
+
+</div>
+
+<!-- ══════════════════ FINALE ══════════════════ -->
+<section id="finale">
+  <div class="finale-ornament">✦ ✦ ✦</div>
+  <div class="finale-hed">Είμαστε μαζί σου,<br>όποτε μας θες</div>
+  <div class="finale-rule"></div>
+  <div class="finale-body">
+    Το πτυχίο είναι χαρτί. Αυτό που κερδίσατε μαζί — τα γέλια, τα δάκρυα, οι νύχτες, τα σχέδια — αυτά είναι για πάντα.
+  </div>
+  <div class="finale-promise">«Για ό,τι χρειαστείς — είμαστε εδώ.»</div>
+
+  <!-- horizontal polaroid -->
+  <div class="finale-polaroid">
+    <img src="media/photo16.jpg" alt="Όλοι μαζί">
+    <div class="finale-polaroid-caption">Πάντα εδώ ♥</div>
+  </div>
+
+  <div class="finale-sigs">
+    <span class="sig">Με αγάπη</span>
+    <span class="sig">Με υπερηφάνεια</span>
+    <span class="sig">Για πάντα εδώ</span>
+  </div>
+  <div class="hearts">
+    <span class="h-float" style="--hd:2.1s;--hdl:0s">🤍</span>
+    <span class="h-float" style="--hd:2.7s;--hdl:.35s">✨</span>
+    <span class="h-float" style="--hd:2.3s;--hdl:.7s">🤍</span>
+    <span class="h-float" style="--hd:3s;--hdl:1s">✨</span>
+    <span class="h-float" style="--hd:2s;--hdl:.2s">🤍</span>
+  </div>
+</section>
+
+<script>
+// ── PROGRESS BAR
+const prog = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  prog.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+}, { passive:true });
+
+// ── PARTICLES
+const pc = document.getElementById('particles');
+for (let i = 0; i < 55; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const angle = Math.random() * 360;
+  const dist  = 60 + Math.random() * 200;
+  p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--pd:${2+Math.random()*4}s;--pde:${Math.random()*5}s;--ps:${1.5+Math.random()*3.5}px;--pdx:${Math.cos(angle*Math.PI/180)*dist*0.3}px;--pdy:${-dist*0.5-Math.random()*50}px;`;
+  pc.appendChild(p);
+}
+
+// ── STAGGER ALL VIDEOS so they each start at a different point
+// This creates the "out of sync" memory effect — each video floats in at a different moment in its timeline.
+// We wait for metadata to know the duration, then set a random currentTime.
+document.querySelectorAll('video').forEach((v, i) => {
+  v.muted = true;
+  v.loop = true;
+  v.playsInline = true;
+  // Give each video a unique offset seed: spread them evenly + a bit of randomness
+  const seed = i;
+  const offsetFraction = (seed * 0.13 + Math.random() * 0.08) % 1;
+  v.addEventListener('loadedmetadata', () => {
+    v.currentTime = v.duration * offsetFraction;
+  }, { once: true });
+  // Force play — some browsers need a push
+  const tryPlay = () => v.play().catch(() => {});
+  tryPlay();
+  document.addEventListener('click', tryPlay, { once: true });
+});
+
+// ── POLAROID POP-IN for chapter sections
+const popObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const group = e.target.closest('.chapter-polaroids');
+    if (group) {
+      [...group.querySelectorAll('.polaroid')].forEach((p, i) => {
+        setTimeout(() => p.classList.add('popped'), i * 200);
+      });
+      popObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.chapter-polaroids').forEach(g => {
+  const first = g.querySelector('.polaroid');
+  if (first) popObs.observe(first);
+});
+
+// ── ACTIVE CHAPTER highlight
+const chObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => e.target.classList.toggle('active', e.isIntersecting));
+}, { threshold: 0.3 });
+document.querySelectorAll('.chapter').forEach(ch => chObs.observe(ch));
+</script>
+</body>
+</html>
