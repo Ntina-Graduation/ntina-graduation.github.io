@@ -93,11 +93,20 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   padding:60px 40px 60px 8%;z-index:10;pointer-events:none;
 }
 .chapter-num{
-  font-family:'Playfair Display',serif;font-size:6rem;font-weight:700;
-  color:transparent;-webkit-text-stroke:1px rgba(201,168,76,0.12);
-  line-height:1;margin-bottom:-15px;transition:-webkit-text-stroke-color 0.6s ease;
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(4rem,8vw,7.5rem);font-weight:700;
+  line-height:1;margin-bottom:4px;
+  background:linear-gradient(135deg,#7a5a18 0%,var(--gold) 40%,var(--gold-lt) 60%,var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  opacity:0.35;
+  transition:opacity 0.6s ease,filter 0.6s ease;
+  filter:drop-shadow(0 0 12px rgba(201,168,76,0));
+  letter-spacing:-0.02em;
 }
-.chapter.active .chapter-num{-webkit-text-stroke-color:rgba(201,168,76,0.3)}
+.chapter.active .chapter-num{
+  opacity:1;
+  filter:drop-shadow(0 0 18px rgba(201,168,76,0.35));
+}
 .chapter-tag{
   font-family:'Libre Baskerville',serif;font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;
   color:rgba(201,168,76,0.5);margin-bottom:12px;
@@ -289,8 +298,8 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
     </div>
     <div class="chapter-polaroids">
       <div class="polaroid" style="--pr:rotate(4deg);--tape-r:3deg" data-pop><img src="media/photo1.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(-5deg);--tape-r:4deg" data-pop><img src="media/photo2.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(2deg);--tape-r:-2deg" data-pop><img src="media/photo3.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid wide" style="--pr:rotate(-3deg);--tape-r:-2deg" data-pop><img src="media/photo2.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(2deg);--tape-r:4deg" data-pop><img src="media/photo3.jpg" loading="lazy" alt=""></div>
     </div>
   </div>
 
@@ -310,6 +319,7 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
       <div class="polaroid wide" style="--pr:rotate(-2deg);--tape-r:1deg" data-pop>
         <video autoplay muted loop playsinline><source src="media/video1.mp4" type="video/mp4"></video>
       </div>
+      <div class="polaroid wide" style="--pr:rotate(3deg);--tape-r:-3deg" data-pop><img src="media/photo6.jpg" loading="lazy" alt=""></div>
     </div>
   </div>
 
@@ -324,8 +334,9 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
       <div class="chapter-body">Δεν θυμάται κανείς πώς ξεκίνησε. Θυμάται πώς τελείωνε — με γέλια, με τραγούδι, με υποσχέσεις που κρατήθηκαν.</div>
     </div>
     <div class="chapter-polaroids">
-      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-3deg" data-pop><img src="media/photo6.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(-4deg);--tape-r:5deg" data-pop><img src="media/photo7.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-3deg" data-pop><img src="media/photo7.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid wide" style="--pr:rotate(-2deg);--tape-r:2deg" data-pop><img src="media/photo8.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(-4deg);--tape-r:5deg" data-pop><img src="media/photo9.jpg" loading="lazy" alt=""></div>
       <div class="polaroid wide" style="--pr:rotate(2deg);--tape-r:-1deg" data-pop>
         <video autoplay muted loop playsinline><source src="media/video2.mp4" type="video/mp4"></video>
       </div>
@@ -343,11 +354,12 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
       <div class="chapter-body">Κάθε φορά που μιλούσες για την πόλη σου, ακούγαμε αγάπη. Τώρα φεύγεις με κάτι που δεν χωράει σε κανένα πτυχίο — με ρίζες.</div>
     </div>
     <div class="chapter-polaroids">
-      <div class="polaroid" style="--pr:rotate(-6deg);--tape-r:4deg" data-pop><img src="media/photo8.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(3deg);--tape-r:-2deg" data-pop><img src="media/photo9.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(-6deg);--tape-r:4deg" data-pop><img src="media/photo10.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(3deg);--tape-r:-2deg" data-pop><img src="media/photo11.jpg" loading="lazy" alt=""></div>
       <div class="polaroid wide" style="--pr:rotate(-2deg);--tape-r:3deg" data-pop>
         <video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video>
       </div>
+      <div class="polaroid wide" style="--pr:rotate(4deg);--tape-r:-2deg" data-pop><img src="media/photo12.jpg" loading="lazy" alt=""></div>
     </div>
   </div>
 
@@ -362,15 +374,13 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
       <div class="chapter-body">Ήταν δύσκολα μερικές φορές. Αλλά να — ήρθε η μέρα. Με το καπέλο στο κεφάλι, με χαμόγελο που δεν κρύβεται.</div>
     </div>
     <div class="chapter-polaroids">
-      <div class="polaroid" style="--pr:rotate(4deg);--tape-r:-3deg" data-pop><img src="media/photo10.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(-3deg);--tape-r:2deg" data-pop><img src="media/photo11.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-4deg" data-pop><img src="media/photo12.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(4deg);--tape-r:-3deg" data-pop><img src="media/photo13.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid wide" style="--pr:rotate(-2deg);--tape-r:2deg" data-pop><img src="media/photo14.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(-3deg);--tape-r:2deg" data-pop><img src="media/photo15.jpg" loading="lazy" alt=""></div>
       <div class="polaroid wide" style="--pr:rotate(-1deg);--tape-r:2deg" data-pop>
         <video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video>
       </div>
-      <div class="polaroid wide" style="--pr:rotate(3deg);--tape-r:-3deg" data-pop>
-        <video autoplay muted loop playsinline><source src="media/video5.mp4" type="video/mp4"></video>
-      </div>
+      <div class="polaroid" style="--pr:rotate(3deg);--tape-r:-3deg" data-pop><img src="media/photo16.jpg" loading="lazy" alt=""></div>
     </div>
   </div>
 
@@ -385,9 +395,12 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
       <div class="chapter-body">Τα πρόσωπα λένε τα πάντα. Η χαρά, η αγάπη, τα γέλια — ζωντανά για πάντα.</div>
     </div>
     <div class="chapter-polaroids">
-      <div class="polaroid" style="--pr:rotate(-4deg);--tape-r:3deg" data-pop><img src="media/photo13.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-2deg" data-pop><img src="media/photo14.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid" style="--pr:rotate(-2deg);--tape-r:4deg" data-pop><img src="media/photo15.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(-4deg);--tape-r:3deg" data-pop><img src="media/photo17.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid wide" style="--pr:rotate(3deg);--tape-r:-2deg" data-pop><img src="media/photo18.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-2deg" data-pop><img src="media/photo19.jpg" loading="lazy" alt=""></div>
+      <div class="polaroid wide" style="--pr:rotate(-3deg);--tape-r:4deg" data-pop>
+        <video autoplay muted loop playsinline><source src="media/video5.mp4" type="video/mp4"></video>
+      </div>
     </div>
   </div>
 
@@ -402,19 +415,19 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   <div class="fp land" style="--fpl:36%;--fpt2:3%;--fpr:-3deg;--fptr:2deg;--fpt:35s;--fpd:-20s;--fpmx:10px;--fpmy:-22px;--fprd:4deg">
     <video autoplay muted loop playsinline><source src="media/video1.mp4" type="video/mp4"></video>
   </div>
-  <div class="fp port" style="--fpl:62%;--fpt2:4%;--fpr:8deg;--fptr:-4deg;--fpt:33s;--fpd:-5s;--fpmx:-18px;--fpmy:14px;--fprd:-7deg"><img src="media/photo3.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:82%;--fpt2:2%;--fpr:-6deg;--fptr:5deg;--fpt:28s;--fpd:-14s;--fpmx:16px;--fpmy:-18px;--fprd:6deg"><img src="media/photo4.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:60%;--fpt2:2%;--fpr:7deg;--fptr:-4deg;--fpt:31s;--fpd:-11s;--fpmx:-16px;--fpmy:14px;--fprd:-5deg"><img src="media/photo16.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:80%;--fpt2:2%;--fpr:-6deg;--fptr:5deg;--fpt:28s;--fpd:-14s;--fpmx:16px;--fpmy:-18px;--fprd:6deg"><img src="media/photo4.jpg" alt=""></div>
 
   <!-- ROW 2 -->
   <div class="fp land" style="--fpl:1%;--fpt2:22%;--fpr:7deg;--fptr:-5deg;--fpt:36s;--fpd:-12s;--fpmx:-12px;--fpmy:-24px;--fprd:-5deg">
     <video autoplay muted loop playsinline><source src="media/video2.mp4" type="video/mp4"></video>
   </div>
   <div class="fp port" style="--fpl:22%;--fpt2:26%;--fpr:-11deg;--fptr:6deg;--fpt:30s;--fpd:-3s;--fpmx:20px;--fpmy:12px;--fprd:8deg"><img src="media/photo5.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:40%;--fpt2:23%;--fpr:4deg;--fptr:-2deg;--fpt:34s;--fpd:-18s;--fpmx:-16px;--fpmy:-20px;--fprd:-4deg"><img src="media/photo6.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:57%;--fpt2:22%;--fpr:-7deg;--fptr:4deg;--fpt:31s;--fpd:-6s;--fpmx:14px;--fpmy:-16px;--fprd:7deg">
+  <div class="fp land" style="--fpl:38%;--fpt2:22%;--fpr:4deg;--fptr:-2deg;--fpt:34s;--fpd:-18s;--fpmx:-16px;--fpmy:-20px;--fprd:-4deg">
     <video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video>
   </div>
-  <div class="fp port" style="--fpl:80%;--fpt2:24%;--fpr:10deg;--fptr:-6deg;--fpt:38s;--fpd:-25s;--fpmx:-20px;--fpmy:18px;--fprd:-9deg"><img src="media/photo7.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:62%;--fpt2:24%;--fpr:-7deg;--fptr:4deg;--fpt:31s;--fpd:-6s;--fpmx:14px;--fpmy:-16px;--fprd:7deg"><img src="media/photo17.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:82%;--fpt2:24%;--fpr:10deg;--fptr:-6deg;--fpt:38s;--fpd:-25s;--fpmx:-20px;--fpmy:18px;--fprd:-9deg"><img src="media/photo7.jpg" alt=""></div>
 
   <!-- ROW 3 -->
   <div class="fp port" style="--fpl:3%;--fpt2:44%;--fpr:-5deg;--fptr:3deg;--fpt:33s;--fpd:-9s;--fpmx:18px;--fpmy:-14px;--fprd:4deg"><img src="media/photo8.jpg" alt=""></div>
@@ -422,7 +435,7 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
     <video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video>
   </div>
   <div class="fp port" style="--fpl:42%;--fpt2:43%;--fpr:-8deg;--fptr:4deg;--fpt:29s;--fpd:-4s;--fpmx:22px;--fpmy:10px;--fprd:6deg"><img src="media/photo9.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:63%;--fpt2:45%;--fpr:5deg;--fptr:-2deg;--fpt:32s;--fpd:-16s;--fpmx:-18px;--fpmy:-16px;--fprd:-5deg"><img src="media/photo10.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:61%;--fpt2:44%;--fpr:5deg;--fptr:-3deg;--fpt:33s;--fpd:-16s;--fpmx:-14px;--fpmy:-18px;--fprd:-5deg"><img src="media/photo18.jpg" alt=""></div>
   <div class="fp land" style="--fpl:79%;--fpt2:43%;--fpr:-4deg;--fptr:3deg;--fpt:35s;--fpd:-10s;--fpmx:14px;--fpmy:-20px;--fprd:5deg">
     <video autoplay muted loop playsinline><source src="media/video5.mp4" type="video/mp4"></video>
   </div>
@@ -432,20 +445,23 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
     <video autoplay muted loop playsinline><source src="media/video1.mp4" type="video/mp4"></video>
   </div>
   <div class="fp port" style="--fpl:23%;--fpt2:68%;--fpr:-6deg;--fptr:4deg;--fpt:31s;--fpd:-7s;--fpmx:16px;--fpmy:-18px;--fprd:6deg"><img src="media/photo11.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:42%;--fpt2:66%;--fpr:12deg;--fptr:-6deg;--fpt:28s;--fpd:-13s;--fpmx:-20px;--fpmy:-12px;--fprd:-8deg"><img src="media/photo12.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:58%;--fpt2:64%;--fpr:-5deg;--fptr:2deg;--fpt:36s;--fpd:-2s;--fpmx:12px;--fpmy:-24px;--fprd:5deg">
+  <div class="fp land" style="--fpl:39%;--fpt2:65%;--fpr:5deg;--fptr:-2deg;--fpt:36s;--fpd:-2s;--fpmx:12px;--fpmy:-24px;--fprd:4deg">
     <video autoplay muted loop playsinline><source src="media/video2.mp4" type="video/mp4"></video>
   </div>
-  <div class="fp port" style="--fpl:82%;--fpt2:67%;--fpr:6deg;--fptr:-4deg;--fpt:33s;--fpd:-21s;--fpmx:-16px;--fpmy:14px;--fprd:-4deg"><img src="media/photo13.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:62%;--fpt2:66%;--fpr:-5deg;--fptr:2deg;--fpt:32s;--fpd:-13s;--fpmx:-16px;--fpmy:14px;--fprd:-6deg"><img src="media/photo19.jpg" alt=""></div>
+  <div class="fp port" style="--fpl:83%;--fpt2:67%;--fpr:6deg;--fptr:-4deg;--fpt:33s;--fpd:-21s;--fpmx:-16px;--fpmy:14px;--fprd:-4deg"><img src="media/photo13.jpg" alt=""></div>
 
   <!-- ROW 5 -->
   <div class="fp port" style="--fpl:6%;--fpt2:84%;--fpr:-10deg;--fptr:5deg;--fpt:30s;--fpd:-11s;--fpmx:14px;--fpmy:-16px;--fprd:7deg"><img src="media/photo14.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:25%;--fpt2:83%;--fpr:4deg;--fptr:-3deg;--fpt:38s;--fpd:-27s;--fpmx:-10px;--fpmy:-20px;--fprd:-5deg">
+  <div class="fp land" style="--fpl:22%;--fpt2:83%;--fpr:4deg;--fptr:-3deg;--fpt:38s;--fpd:-27s;--fpmx:-10px;--fpmy:-20px;--fprd:-5deg">
     <video autoplay muted loop playsinline><source src="media/video3.mp4" type="video/mp4"></video>
   </div>
-  <div class="fp port" style="--fpl:50%;--fpt2:85%;--fpr:-7deg;--fptr:4deg;--fpt:32s;--fpd:-5s;--fpmx:18px;--fpmy:10px;--fprd:6deg"><img src="media/photo15.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:70%;--fpt2:82%;--fpr:8deg;--fptr:-2deg;--fpt:35s;--fpd:-15s;--fpmx:-12px;--fpmy:-18px;--fprd:-6deg">
+  <div class="fp port" style="--fpl:45%;--fpt2:85%;--fpr:-7deg;--fptr:4deg;--fpt:32s;--fpd:-5s;--fpmx:18px;--fpmy:10px;--fprd:6deg"><img src="media/photo15.jpg" alt=""></div>
+  <div class="fp land" style="--fpl:62%;--fpt2:83%;--fpr:5deg;--fptr:-2deg;--fpt:29s;--fpd:-9s;--fpmx:-12px;--fpmy:-16px;--fprd:-4deg">
     <video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video>
+  </div>
+  <div class="fp land" style="--fpl:80%;--fpt2:82%;--fpr:-8deg;--fptr:3deg;--fpt:35s;--fpd:-15s;--fpmx:10px;--fpmy:-22px;--fprd:6deg">
+    <video autoplay muted loop playsinline><source src="media/video5.mp4" type="video/mp4"></video>
   </div>
 
 </div>
@@ -458,12 +474,12 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   <div class="finale-body">Το πτυχίο είναι χαρτί. Αυτό που κερδίσατε μαζί — τα γέλια, τα δάκρυα, οι νύχτες, τα σχέδια — αυτά είναι για πάντα.</div>
   <div class="finale-promise">«Για ό,τι χρειαστείς — είμαστε εδώ.»</div>
   <div class="finale-polaroid">
-    <img src="media/photo16.jpg" alt="Όλοι μαζί">
+    <img src="media/photo20.jpg" alt="Όλοι μαζί">
     <div class="finale-polaroid-caption">Πάντα εδώ ♥</div>
   </div>
   <div class="finale-sigs">
     <span class="sig">Με αγάπη</span>
-    <span class="sig">Και ποτακία</span>
+    <span class="sig">Με υπερηφάνεια</span>
     <span class="sig">Για πάντα εδώ</span>
   </div>
   <div class="hearts">
