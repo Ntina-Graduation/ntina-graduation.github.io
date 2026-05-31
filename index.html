@@ -170,17 +170,14 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
 /* floating polaroid cards */
 .fp{
   position:absolute;z-index:2;
-  left:var(--fpl);top:var(--fpt2);
   background:#fdf6e8;
   box-shadow:0 12px 50px rgba(0,0,0,0.65),0 2px 10px rgba(0,0,0,0.4);
   pointer-events:none;
-  animation:fpCycle var(--fpt) ease-in-out infinite;
-  animation-delay:var(--fpd);
   opacity:0;
   will-change:transform,opacity;
 }
-.fp.port{width:clamp(100px,11vw,165px);padding:8px 8px 34px}
-.fp.land{width:clamp(130px,16vw,220px);padding:8px 8px 34px}
+.fp.port{width:clamp(90px,10vw,155px);padding:7px 7px 30px}
+.fp.land{width:clamp(120px,14vw,200px);padding:7px 7px 30px}
 .fp.port img,.fp.port video,.fp.land img,.fp.land video{
   width:100%;object-fit:cover;display:block;
   filter:sepia(15%) brightness(0.9) contrast(1.04);
@@ -190,14 +187,14 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
 .fp::before{
   content:'';position:absolute;top:-9px;left:50%;
   transform:translateX(-50%) rotate(var(--fptr,-2deg));
-  width:40px;height:18px;
+  width:38px;height:17px;
   background:rgba(240,212,117,0.5);border:1px solid rgba(201,168,76,0.25);z-index:3;
 }
 @keyframes fpCycle{
-  0%  {opacity:0;  transform:rotate(var(--fpr)) scale(0.82) translate(0,0)}
-  8%  {opacity:0.9;transform:rotate(var(--fpr)) scale(1)    translate(0,0)}
-  80% {opacity:0.9;transform:rotate(calc(var(--fpr) + var(--fprd,4deg))) scale(1) translate(var(--fpmx,14px),var(--fpmy,-18px))}
-  100%{opacity:0;  transform:rotate(calc(var(--fpr) + var(--fprd,4deg))) scale(0.85) translate(var(--fpmx,14px),var(--fpmy,-18px))}
+  0%  {opacity:0;  transform:rotate(var(--fpr,0deg)) scale(0.82) translate(0,0)}
+  8%  {opacity:0.9;transform:rotate(var(--fpr,0deg)) scale(1)    translate(0,0)}
+  80% {opacity:0.9;transform:rotate(calc(var(--fpr,0deg) + var(--fprd,4deg))) scale(1) translate(var(--fpmx,10px),var(--fpmy,-14px))}
+  100%{opacity:0;  transform:rotate(calc(var(--fpr,0deg) + var(--fprd,4deg))) scale(0.85) translate(var(--fpmx,10px),var(--fpmy,-14px))}
 }
 
 /* ── FINALE ── */
@@ -260,9 +257,9 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   .chapter-polaroids{padding:20px 24px 60px;gap:40px}
   .polaroid{width:clamp(150px,58vw,230px) !important}
   .polaroid.wide{width:clamp(190px,75vw,280px) !important}
-  .fp.port{width:clamp(70px,20vw,105px) !important}
-  .fp.land{width:clamp(90px,25vw,135px) !important}
-  .memory-wall{height:260vh}
+  .fp.port{width:clamp(65px,18vw,95px) !important}
+  .fp.land{width:clamp(85px,22vw,120px) !important}
+  .memory-wall{height:250vh}
 }
 </style>
 </head>
@@ -278,7 +275,7 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   <div class="hero-name">Ντίνα</div>
   <div class="hero-rule"></div>
   <div class="hero-sub">Πτυχιούχος · Απόφοιτη · Νικήτρια</div>
-  <div class="hero-tagline">Ήταν μια ταξιδιά. Δεν ήταν εύκολη.<br>Αλλά τελικά — το έκανες.</div>
+  <div class="hero-tagline">Μην την ρωτάτε για κώδικα, δεν ξέρει να σας πει,<br>με Chivas, τσιγάρο και ποντιακά έβγαλε τη σχολή.</div>
   <div class="scroll-cue">
     <span>Ανακάλυψε</span>
     <div class="scroll-line"></div>
@@ -384,7 +381,7 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
         <video autoplay muted loop playsinline><source src="media/video4.mp4" type="video/mp4"></video>
       </div>
       <div class="polaroid" style="--pr:rotate(3deg);--tape-r:-3deg" data-pop><img src="media/photo16.jpg" loading="lazy" alt=""></div>
-      <div class="polaroid wide" style="--pr:rotate(5deg);--tape-r:-4deg" data-pop>
+      <div class="polaroid" style="--pr:rotate(5deg);--tape-r:-4deg" data-pop>
         <video autoplay muted loop playsinline><source src="media/videoextra.mp4" type="video/mp4"></video>
       </div>
     </div>
@@ -413,64 +410,34 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
 
 </div>
 
-<!-- MEMORY WALL — floating polaroids, no background video grid -->
+<!-- MEMORY WALL — JS positions all cards to avoid overlap -->
 <div class="memory-wall" id="memwall">
-
-  <!-- ROW 1 (top ~2-5%) -->
-  <div class="fp port" style="--fpl:2%;--fpt2:3%;--fpr:-9deg;--fptr:3deg;--fpt:32s;--fpd:0s;--fpmx:12px;--fpmy:-20px;--fprd:5deg"><img src="media2/photo1.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:17%;--fpt2:2%;--fpr:-3deg;--fptr:2deg;--fpt:35s;--fpd:-20s;--fpmx:10px;--fpmy:-22px;--fprd:4deg">
-    <video autoplay muted loop playsinline><source src="media2/video1.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:40%;--fpt2:3%;--fpr:5deg;--fptr:-3deg;--fpt:29s;--fpd:-8s;--fpmx:-14px;--fpmy:16px;--fprd:-6deg"><img src="media2/photo2.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:56%;--fpt2:2%;--fpr:7deg;--fptr:-4deg;--fpt:31s;--fpd:-11s;--fpmx:-16px;--fpmy:14px;--fprd:-5deg">
-    <video autoplay muted loop playsinline><source src="media2/video2.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:80%;--fpt2:2%;--fpr:-6deg;--fptr:5deg;--fpt:28s;--fpd:-14s;--fpmx:16px;--fpmy:-18px;--fprd:6deg"><img src="media2/photo3.jpg" alt=""></div>
-
-  <!-- ROW 2 (~22-27%) -->
-  <div class="fp land" style="--fpl:1%;--fpt2:22%;--fpr:7deg;--fptr:-5deg;--fpt:36s;--fpd:-12s;--fpmx:-12px;--fpmy:-24px;--fprd:-5deg">
-    <video autoplay muted loop playsinline><source src="media2/video3.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:22%;--fpt2:26%;--fpr:-11deg;--fptr:6deg;--fpt:30s;--fpd:-3s;--fpmx:20px;--fpmy:12px;--fprd:8deg"><img src="media2/photo4.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:40%;--fpt2:23%;--fpr:4deg;--fptr:-2deg;--fpt:34s;--fpd:-18s;--fpmx:-16px;--fpmy:-20px;--fprd:-4deg"><img src="media2/photo5.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:57%;--fpt2:22%;--fpr:-7deg;--fptr:4deg;--fpt:33s;--fpd:-6s;--fpmx:14px;--fpmy:-16px;--fprd:7deg">
-    <video autoplay muted loop playsinline><source src="media2/video4.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:81%;--fpt2:24%;--fpr:10deg;--fptr:-6deg;--fpt:38s;--fpd:-25s;--fpmx:-20px;--fpmy:18px;--fprd:-9deg"><img src="media2/photo6.jpg" alt=""></div>
-
-  <!-- ROW 3 (~43-47%) -->
-  <div class="fp port" style="--fpl:3%;--fpt2:44%;--fpr:-5deg;--fptr:3deg;--fpt:33s;--fpd:-9s;--fpmx:18px;--fpmy:-14px;--fprd:4deg"><img src="media2/photo7.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:18%;--fpt2:46%;--fpr:6deg;--fptr:-3deg;--fpt:37s;--fpd:-22s;--fpmx:-10px;--fpmy:-22px;--fprd:-6deg">
-    <video autoplay muted loop playsinline><source src="media2/video5.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:42%;--fpt2:43%;--fpr:-8deg;--fptr:4deg;--fpt:29s;--fpd:-4s;--fpmx:22px;--fpmy:10px;--fprd:6deg"><img src="media2/photo8.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:59%;--fpt2:44%;--fpr:5deg;--fptr:-3deg;--fpt:32s;--fpd:-16s;--fpmx:-14px;--fpmy:-18px;--fprd:-5deg">
-    <video autoplay muted loop playsinline><source src="media2/video6.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:81%;--fpt2:43%;--fpr:-4deg;--fptr:3deg;--fpt:35s;--fpd:-10s;--fpmx:14px;--fpmy:-20px;--fprd:5deg"><img src="media2/photo9.jpg" alt=""></div>
-
-  <!-- ROW 4 (~64-68%) -->
-  <div class="fp land" style="--fpl:2%;--fpt2:65%;--fpr:9deg;--fptr:-5deg;--fpt:34s;--fpd:-19s;--fpmx:-14px;--fpmy:16px;--fprd:-7deg">
-    <video autoplay muted loop playsinline><source src="media2/video7.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:23%;--fpt2:68%;--fpr:-6deg;--fptr:4deg;--fpt:31s;--fpd:-7s;--fpmx:16px;--fpmy:-18px;--fprd:6deg"><img src="media2/photo10.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:41%;--fpt2:65%;--fpr:5deg;--fptr:-2deg;--fpt:36s;--fpd:-2s;--fpmx:12px;--fpmy:-24px;--fprd:4deg"><img src="media2/photo11.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:58%;--fpt2:64%;--fpr:-5deg;--fptr:2deg;--fpt:29s;--fpd:-13s;--fpmx:-16px;--fpmy:14px;--fprd:-6deg">
-    <video autoplay muted loop playsinline><source src="media2/video8.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:82%;--fpt2:67%;--fpr:6deg;--fptr:-4deg;--fpt:33s;--fpd:-21s;--fpmx:-16px;--fpmy:14px;--fprd:-4deg"><img src="media2/photo12.jpg" alt=""></div>
-
-  <!-- ROW 5 (~83-87%) -->
-  <div class="fp port" style="--fpl:6%;--fpt2:84%;--fpr:-10deg;--fptr:5deg;--fpt:30s;--fpd:-11s;--fpmx:14px;--fpmy:-16px;--fprd:7deg"><img src="media2/photo13.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:22%;--fpt2:83%;--fpr:4deg;--fptr:-3deg;--fpt:38s;--fpd:-27s;--fpmx:-10px;--fpmy:-20px;--fprd:-5deg">
-    <video autoplay muted loop playsinline><source src="media2/video9.mp4" type="video/mp4"></video>
-  </div>
-  <div class="fp port" style="--fpl:44%;--fpt2:85%;--fpr:-7deg;--fptr:4deg;--fpt:32s;--fpd:-5s;--fpmx:18px;--fpmy:10px;--fprd:6deg"><img src="media2/photo14.jpg" alt=""></div>
-  <div class="fp port" style="--fpl:63%;--fpt2:83%;--fpr:5deg;--fptr:-2deg;--fpt:29s;--fpd:-9s;--fpmx:-12px;--fpmy:-16px;--fprd:-4deg"><img src="media2/photo15.jpg" alt=""></div>
-  <div class="fp land" style="--fpl:79%;--fpt2:82%;--fpr:-8deg;--fptr:3deg;--fpt:35s;--fpd:-15s;--fpmx:10px;--fpmy:-22px;--fprd:6deg">
-    <video autoplay muted loop playsinline><source src="media2/video1.mp4" type="video/mp4"></video>
-  </div>
-
+  <!-- photos -->
+  <div class="fp port" data-fp><img src="media2/photo1.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo2.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo3.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo4.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo5.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo6.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo7.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo8.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo9.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo10.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo11.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo12.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo13.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo14.jpg" alt=""></div>
+  <div class="fp port" data-fp><img src="media2/photo15.jpg" alt=""></div>
+  <!-- videos -->
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video1.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video2.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video3.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video4.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video5.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video6.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video7.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video8.mp4" type="video/mp4"></video></div>
+  <div class="fp land" data-fp><video autoplay muted loop playsinline><source src="media2/video9.mp4" type="video/mp4"></video></div>
 </div>
 
 <!-- FINALE -->
@@ -478,7 +445,7 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   <div class="finale-ornament">✦ ✦ ✦</div>
   <div class="finale-hed">Είμαστε μαζί σου,<br>όποτε μας θες</div>
   <div class="finale-rule"></div>
-  <div class="finale-body">Το πτυχίο είναι χαρτί. Αυτό που κερδίσατε μαζί — τα γέλια, τα δάκρυα, οι νύχτες, τα σχέδια — αυτά είναι για πάντα.</div>
+  <div class="finale-body">Κάποια στιγμή, τα ξενύχτια σου δεν θα είναι πια για να βγάλεις την ύλη της εξεταστικής την τελευταία νύχτα, ούτε για ποτά μέχρι το πρωί. Θα είναι για τις έγνοιες και τα ωράρια της δουλειάς.<br>Αλλά κάθε φορά που θα κοιτάς πίσω, εκείνα τα φοιτητικά βράδια θα σου κλείνουν το μάτι και θα σου λένε: <br> «Καλησπέρα και καλή βραδιά» γιατί σαν εκείνες τις νύχτες, δεν έχει.</div>
   <div class="finale-promise">«Για ό,τι χρειαστείς — είμαστε εδώ.»</div>
   <div class="finale-polaroid">
     <img src="media/photofinal.jpg" alt="Όλοι μαζί">
@@ -486,7 +453,7 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   </div>
   <div class="finale-sigs">
     <span class="sig">Με αγάπη</span>
-    <span class="sig">Με υπερηφάνεια</span>
+    <span class="sig">Και Ποτακία</span>
     <span class="sig">Για πάντα εδώ</span>
   </div>
   <div class="hearts">
@@ -549,63 +516,147 @@ const chObs = new IntersectionObserver(entries => {
 }, {threshold:0.3});
 document.querySelectorAll('.chapter').forEach(ch => chObs.observe(ch));
 
-// ── MEMORY WALL: randomise position after each animation cycle ──
-// Each .fp card has a CSS animation (fpCycle) with duration --fpt.
-// When the animation completes one cycle, we pick a fresh random
-// left/top so it reappears in a different spot every time.
-(function initWallRotation() {
-  // Position zones: divide the wall into a loose grid of cells so
-  // polaroids spread out rather than clustering.
-  const cols = 5, rows = 5;
-  // Track which cell each card last occupied so we avoid repeating it.
-  const lastCell = new WeakMap();
+// ── MEMORY WALL: pixel-accurate placement, no overlap ──
+(function initWall() {
+  const wall  = document.getElementById('memwall');
+  const cards = [...wall.querySelectorAll('.fp')];
+  const CYCLE = 30; // seconds per animation cycle
+  const PAD   = 14; // px padding between cards
 
-  function randomCell(exclude) {
-    const total = cols * rows;
-    let cell;
-    do { cell = Math.floor(Math.random() * total); } while (cell === exclude);
-    return cell;
+  // Run after fonts/layout settle
+  function setup() {
+    const W = wall.offsetWidth;
+    const H = wall.offsetHeight;
+
+    // Measure each card's actual rendered size
+    cards.forEach(el => {
+      el.style.opacity = '0';
+      el.style.left = '0px';
+      el.style.top  = '0px';
+    });
+
+    // Force layout then read sizes
+    wall.getBoundingClientRect();
+
+    const sizes = cards.map(el => {
+      const r = el.getBoundingClientRect();
+      return { w: r.width || (el.classList.contains('land') ? 160 : 110),
+               h: r.height || (el.classList.contains('land') ? 150 : 170) };
+    });
+
+    function rnd(a, b) { return parseFloat((Math.random() * (b - a) + a).toFixed(1)); }
+
+    function findSpot(idx, placed) {
+      const { w, h } = sizes[idx];
+      const maxX = W - w - PAD;
+      const maxY = H - h - PAD;
+      if (maxX < PAD || maxY < PAD) return { x: PAD, y: PAD };
+
+      for (let t = 0; t < 120; t++) {
+        const x = PAD + Math.random() * (maxX - PAD);
+        const y = PAD + Math.random() * (maxY - PAD);
+        let ok = true;
+        for (const p of placed) {
+          if (x < p.x + p.w + PAD && x + w + PAD > p.x &&
+              y < p.y + p.h + PAD && y + h + PAD > p.y) {
+            ok = false; break;
+          }
+        }
+        if (ok) return { x, y };
+      }
+      // fallback: pick least-overlapping
+      return { x: PAD + Math.random() * Math.max(0, maxX - PAD),
+               y: PAD + Math.random() * Math.max(0, maxY - PAD) };
+    }
+
+    function applyStyle(el) {
+      el.style.setProperty('--fpr',  rnd(-12, 12) + 'deg');
+      el.style.setProperty('--fptr', rnd(-5, 5)   + 'deg');
+      el.style.setProperty('--fpmx', rnd(-16, 16) + 'px');
+      el.style.setProperty('--fpmy', rnd(-16, 16) + 'px');
+      el.style.setProperty('--fprd', rnd(-7, 7)   + 'deg');
+    }
+
+    function place(idx, placed) {
+      const el = cards[idx];
+      const { x, y } = findSpot(idx, placed);
+      el.style.left = x + 'px';
+      el.style.top  = y + 'px';
+      applyStyle(el);
+      const { w, h } = sizes[idx];
+      placed.push({ x, y, w, h });
+      return { x, y, w, h };
+    }
+
+    // Shuffle helper
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // Assign animation timing (staggered so they appear at different points)
+    shuffle([...Array(cards.length).keys()]).forEach((idx, order) => {
+      const el  = cards[idx];
+      const dur = CYCLE + rnd(-4, 4);
+      const del = -(Math.random() * CYCLE); // start mid-cycle so they don't all pop at once
+      el.style.animationName           = 'fpCycle';
+      el.style.animationDuration       = dur + 's';
+      el.style.animationDelay          = del + 's';
+      el.style.animationTimingFunction = 'ease-in-out';
+      el.style.animationIterationCount = 'infinite';
+    });
+
+    // Initial placement
+    const placed = [];
+    cards.forEach((_, idx) => place(idx, placed));
+
+    // On each cycle: reposition with fresh collision check
+    cards.forEach((el, idx) => {
+      el.addEventListener('animationiteration', () => {
+        const W2 = wall.offsetWidth;
+        const H2 = wall.offsetHeight;
+        // Rebuild placed list from all OTHER cards' current positions
+        const others = cards
+          .filter((_, i) => i !== idx)
+          .map((c, i) => ({
+            x: parseFloat(c.style.left) || 0,
+            y: parseFloat(c.style.top)  || 0,
+            w: sizes[i >= idx ? i + 1 : i].w,
+            h: sizes[i >= idx ? i + 1 : i].h,
+          }));
+        const { w, h } = sizes[idx];
+        const maxX = W2 - w - PAD, maxY = H2 - h - PAD;
+        let best = { x: PAD + Math.random() * Math.max(0, maxX - PAD),
+                     y: PAD + Math.random() * Math.max(0, maxY - PAD) };
+        for (let t = 0; t < 120; t++) {
+          const x = PAD + Math.random() * Math.max(0, maxX - PAD);
+          const y = PAD + Math.random() * Math.max(0, maxY - PAD);
+          let ok = true;
+          for (const p of others) {
+            if (x < p.x + p.w + PAD && x + w + PAD > p.x &&
+                y < p.y + p.h + PAD && y + h + PAD > p.y) { ok = false; break; }
+          }
+          if (ok) { best = { x, y }; break; }
+        }
+        el.style.left = best.x + 'px';
+        el.style.top  = best.y + 'px';
+        applyStyle(el);
+      });
+    });
+
+    // Re-run placement on resize
+    window.addEventListener('resize', () => {
+      clearTimeout(wall._rt);
+      wall._rt = setTimeout(setup, 300);
+    }, { passive: true });
   }
 
-  function cellToPos(cell) {
-    const col = cell % cols;
-    const row = Math.floor(cell / cols);
-    // Add jitter within the cell
-    const left = (col / cols * 90) + (Math.random() * 8) + 1;   // 1–91%
-    const top  = (row / rows * 80) + (Math.random() * 10) + 2;  // 2–82%
-    return { left, top };
-  }
-
-  function reposition(el) {
-    const prev = lastCell.get(el);
-    const cell = randomCell(prev);
-    lastCell.set(el, cell);
-    const { left, top } = cellToPos(cell);
-
-    // New drift values so the float direction also varies
-    const mx = (Math.random() * 30 - 15).toFixed(1);
-    const my = (Math.random() * 30 - 15).toFixed(1);
-    const rd = (Math.random() * 10 - 5).toFixed(1);
-    const rot = (Math.random() * 20 - 10).toFixed(1);
-    const taper = (Math.random() * 8 - 4).toFixed(1);
-
-    el.style.setProperty('--fpl',  left.toFixed(1) + '%');
-    el.style.setProperty('--fpt2', top.toFixed(1)  + '%');
-    el.style.setProperty('--fpr',  rot  + 'deg');
-    el.style.setProperty('--fptr', taper + 'deg');
-    el.style.setProperty('--fpmx', mx + 'px');
-    el.style.setProperty('--fpmy', my + 'px');
-    el.style.setProperty('--fprd', rd + 'deg');
-  }
-
-  document.querySelectorAll('#memwall .fp').forEach((el, i) => {
-    // Assign initial random cell (no exclusion on first run)
-    const cell = Math.floor(Math.random() * cols * rows);
-    lastCell.set(el, cell);
-
-    // Listen for animationiteration — fires at the end of each cycle
-    el.addEventListener('animationiteration', () => reposition(el));
-  });
+  // Wait for layout
+  if (document.readyState === 'complete') setup();
+  else window.addEventListener('load', setup);
 })();
 </script>
 </body>
