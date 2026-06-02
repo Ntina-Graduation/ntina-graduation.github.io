@@ -149,7 +149,9 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
   filter:sepia(12%) contrast(1.06) brightness(0.92) saturate(0.9);
   pointer-events:none;
+  opacity:0;transition:opacity 0.6s ease;
 }
+.polaroid img.loaded,.polaroid video.loaded{opacity:1}
 .polaroid::before{
   content:'';position:absolute;top:-10px;left:50%;
   transform:translateX(-50%) rotate(var(--tape-r,-2deg));
@@ -181,7 +183,9 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
 .fp.port img,.fp.port video,.fp.land img,.fp.land video{
   width:100%;object-fit:cover;display:block;
   filter:sepia(15%) brightness(0.9) contrast(1.04);
+  opacity:0;transition:opacity 0.7s ease;
 }
+.fp.port img.loaded,.fp.port video.loaded,.fp.land img.loaded,.fp.land video.loaded{opacity:1}
 .fp.port img,.fp.port video{aspect-ratio:3/4}
 .fp.land img,.fp.land video{aspect-ratio:4/3}
 .fp::before{
@@ -230,7 +234,8 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
   position:relative;transition:transform 0.4s ease,box-shadow 0.4s ease;cursor:pointer;
 }
 .finale-polaroid:hover{transform:rotate(0deg) scale(1.02);box-shadow:0 30px 80px rgba(0,0,0,0.9)}
-.finale-polaroid img{width:100%;aspect-ratio:5/3;object-fit:cover;display:block;filter:sepia(8%) contrast(1.05)}
+.finale-polaroid img{width:100%;aspect-ratio:5/3;object-fit:cover;display:block;filter:sepia(8%) contrast(1.05);opacity:0;transition:opacity 0.7s ease}
+.finale-polaroid img.loaded{opacity:1}
 .finale-polaroid-caption{
   position:absolute;bottom:12px;left:0;right:0;text-align:center;
   font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:rgba(60,40,10,0.8);
@@ -466,6 +471,18 @@ body{background:var(--dark);color:var(--cream);font-family:'Cormorant Garamond',
 </section>
 
 <script>
+// Smooth image/video fade-in on load
+function fadeInOnLoad(el) {
+  if (el.tagName === 'IMG') {
+    if (el.complete && el.naturalWidth) { el.classList.add('loaded'); }
+    else { el.addEventListener('load', () => el.classList.add('loaded'), {once:true}); }
+  } else if (el.tagName === 'VIDEO') {
+    if (el.readyState >= 3) { el.classList.add('loaded'); }
+    else { el.addEventListener('canplay', () => el.classList.add('loaded'), {once:true}); }
+  }
+}
+document.querySelectorAll('img, video').forEach(fadeInOnLoad);
+
 // Progress bar
 const prog = document.getElementById('prog');
 window.addEventListener('scroll', () => {
